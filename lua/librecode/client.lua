@@ -18,10 +18,12 @@ end
 
 function M.generate(prompt, callback)
     M.latest_request_id = M.latest_request_id + 1
-    local current_id = M.latest_request_id
     local payload = vim.fn.json_encode({
         model = config.options.model,
         prompt = prompt,
+        options = {
+            temperature = 0,
+        },
         stream = false,
     })
     local cmd = {

@@ -1,18 +1,18 @@
 local M = {}
 
 function M.build(context)
-	return [[
+    return [[
 You are an expert programming assistant.
 
 Task:
-- Continue the code below.
-- Predict the most likely next code.
+- Continue the **current line** of code only.
+- Predict the most likely continuation from the cursor position.
+- Do NOT add new lines.
 - Return ONLY the code to be inserted.
-- Do NOT explain.
-- Do NOT repeat existing lines.
-- Do NOT include markdown.
+- Do NOT repeat existing code.
+- Do NOT include markdown or explanations.
 
-Code:
+Code context:
 ]] .. context .. "\n\nCompletion:"
 end
 

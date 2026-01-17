@@ -8,18 +8,17 @@ function M.debounce(fn, delay)
         if not last_args then
             return
         end
-        vim.schedule(function ()
+        vim.schedule(function()
             fn(unpack(last_args))
         end)
     end
 
     local function trigger(...)
-        last_args = {...}
+        last_args = { ... }
         timer:stop()
-        timer:start(delay,0,run)
+        timer:start(delay, 0, run)
     end
     return trigger
-
 end
 
 return M
